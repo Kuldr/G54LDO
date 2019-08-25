@@ -1,0 +1,188 @@
+/*Objective Function
+  */
+//Amount bought in each month (-ive as it decreases profit)
+-110PJanVEG1 -120PJanVEG2 -130PJanOIL1 -110PJanOIL2 -115PJanOIL3 //Bought in Jan
+-130PFebVEG1 -130PFebVEG2 -110PFebOIL1 -90PFebOIL2 -115PFebOIL3 //Bought in Feb
+-110PMarVEG1 -140PMarVEG2 -130PMarOIL1 -100PMarOIL2 -95PMarOIL3 //Bought in Mar
+-120PAprVEG1 -110PAprVEG2 -120PAprOIL1 -120PAprOIL2 -125PAprOIL3 //Bought in Apr
+-100PMayVEG1 -120PMayVEG2 -150PMayOIL1 -110PMayOIL2 -105PMayOIL3 //Bought in May
+-90PJunVEG1 -100PJunVEG2 -140PJunOIL1 -80PJunOIL2 -135PJunOIL3 //Bought in Jun
+//Amount stored in each month (-ive as it decreases profit)
+-5SJanVEG1 -5SJanVEG2 -5SJanOIL1 -5SJanOIL2 -5SJanOIL3 //Stored in Jan
+-5SFebVEG1 -5SFebVEG2 -5SFebOIL1 -5SFebOIL2 -5SFebOIL3 //Stored in Feb
+-5SMarVEG1 -5SMarVEG2 -5SMarOIL1 -5SMarOIL2 -5SMarOIL3 //Stored in Mar
+-5SAprVEG1 -5SAprVEG2 -5SAprOIL1 -5SAprOIL2 -5SAprOIL3 //Stored in Apr
+-5SMayVEG1 -5SMayVEG2 -5SMayOIL1 -5SMayOIL2 -5SMayOIL3 //Stored in May
+-5SJunVEG1 -5SJunVEG2 -5SJunOIL1 -5SJunOIL2 -5SJunOIL3 //Stored in Jun
+//Amount created in each month (+ive as it increases profit)
++150CJan +150CFeb +150CMar +150CApr +150CMay +150CJun;
+
+//Max Refineable
+UJanVEG1+ UJanVEG2            <= 200;
+UJanOIL1+ UJanOIL2+ UJanOIL3  <= 250;
+UFebVEG1+ UFebVEG2            <= 200;
+UFebOIL1+ UFebOIL2+ UFebOIL3  <= 250;
+UMarVEG1+ UMarVEG2            <= 200;
+UMarOIL1+ UMarOIL2+ UMarOIL3  <= 250;
+UAprVEG1+ UAprVEG2            <= 200;
+UAprOIL1+ UAprOIL2+ UAprOIL3  <= 250;
+UMayVEG1+ UMayVEG2            <= 200;
+UMayOIL1+ UMayOIL2+ UMayOIL3  <= 250;
+UJunVEG1+ UJunVEG2            <= 200;
+UJunOIL1+ UJunOIL2+ UJunOIL3  <= 250;
+
+//Hardness
++8.8UJanVEG1 +6.1UJanVEG2 +2.0UJanOIL1 +4.2UJanOIL2 +5.0UJanOIL3 -6CJanOIL3 = 0; //Upper Bound of hardness in Jan
++8.8UJanVEG1 +6.1UJanVEG2 +2.0UJanOIL1 +4.2UJanOIL2 +5.0UJanOIL3 -3CJanOIL3 = 0; //Lower Bound of hardness in Jan
++8.8UFebVEG1 +6.1UFebVEG2 +2.0UFebOIL1 +4.2UFebOIL2 +5.0UFebOIL3 -6CFebOIL3 = 0; //Upper Bound of hardness in Feb
++8.8UFebVEG1 +6.1UFebVEG2 +2.0UFebOIL1 +4.2UFebOIL2 +5.0UFebOIL3 -3CFebOIL3 = 0; //Lower Bound of hardness in Feb
++8.8UMarVEG1 +6.1UMarVEG2 +2.0UMarOIL1 +4.2UMarOIL2 +5.0UMarOIL3 -6CMarOIL3 = 0; //Upper Bound of hardness in Mar
++8.8UMarVEG1 +6.1UMarVEG2 +2.0UMarOIL1 +4.2UMarOIL2 +5.0UMarOIL3 -3CMarOIL3 = 0; //Lower Bound of hardness in Mar
++8.8UAprVEG1 +6.1UAprVEG2 +2.0UAprOIL1 +4.2UAprOIL2 +5.0UAprOIL3 -6CAprOIL3 = 0; //Upper Bound of hardness in Apr
++8.8UAprVEG1 +6.1UAprVEG2 +2.0UAprOIL1 +4.2UAprOIL2 +5.0UAprOIL3 -3CAprOIL3 = 0; //Lower Bound of hardness in Apr
++8.8UMayVEG1 +6.1UMayVEG2 +2.0UMayOIL1 +4.2UMayOIL2 +5.0UMayOIL3 -6CMayOIL3 = 0; //Upper Bound of hardness in May
++8.8UMayVEG1 +6.1UMayVEG2 +2.0UMayOIL1 +4.2UMayOIL2 +5.0UMayOIL3 -3CMayOIL3 = 0; //Lower Bound of hardness in May
++8.8UJunVEG1 +6.1UJunVEG2 +2.0UJunOIL1 +4.2UJunOIL2 +5.0UJunOIL3 -6CJunOIL3 = 0; //Upper Bound of hardness in Jun
++8.8UJunVEG1 +6.1UJunVEG2 +2.0UJunOIL1 +4.2UJunOIL2 +5.0UJunOIL3 -3CJunOIL3 = 0; //Lower Bound of hardness in Jun
+
+//Input and Output
++UJanVEG1 +UJanVEG2 +UJanOIL1 +UJanOIL2 +UJanOIL3 = CJan;
++UFebVEG1 +UFebVEG2 +UFebOIL1 +UFebOIL2 +UFebOIL3 = CFeb;
++UMarVEG1 +UMarVEG2 +UMarOIL1 +UMarOIL2 +UMarOIL3 = CMar;
++UAprVEG1 +UAprVEG2 +UAprOIL1 +UAprOIL2 +UAprOIL3 = CApr;
++UMayVEG1 +UMayVEG2 +UMayOIL1 +UMayOIL2 +UMayOIL3 = CMay;
++UJunVEG1 +UJunVEG2 +UJunOIL1 +UJunOIL2 +UJunOIL3 = CJun;
+
+//Storage Limits
+SJanVEG1 <= 1000;
+SJanVEG2 <= 1000;
+SJanOIL1 <= 1000;
+SJanOIL2 <= 1000;
+SJanOIL3 <= 1000;
+SFebVEG1 <= 1000;
+SFebVEG2 <= 1000;
+SFebOIL1 <= 1000;
+SFebOIL2 <= 1000;
+SFebOIL3 <= 1000;
+SMarVEG1 <= 1000;
+SMarVEG2 <= 1000;
+SMarOIL1 <= 1000;
+SMarOIL2 <= 1000;
+SMarOIL3 <= 1000;
+SAprVEG1 <= 1000;
+SAprVEG2 <= 1000;
+SAprOIL1 <= 1000;
+SAprOIL2 <= 1000;
+SAprOIL3 <= 1000;
+SMayVEG1 <= 1000;
+SMayVEG2 <= 1000;
+SMayOIL1 <= 1000;
+SMayOIL2 <= 1000;
+SMayOIL3 <= 1000;
+SJunVEG1 <= 1000;
+SJunVEG2 <= 1000;
+SJunOIL1 <= 1000;
+SJunOIL2 <= 1000;
+SJunOIL3 <= 1000;
+
+//Stored, Bought, Used Linking Constraints
++SJunVEG1 +PJanVEG1 -UJanVEG1 -SJanVEG1 = 0;
++SJunVEG2 +PJanVEG2 -UJanVEG2 -SJanVEG2 = 0;
++SJunOIL1 +PJanOIL1 -UJanOIL1 -SJanOIL1 = 0;
++SJunOIL2 +PJanOIL2 -UJanOIL2 -SJanOIL2 = 0;
++SJunOIL3 +PJanOIL3 -UJanOIL3 -SJanOIL3 = 0;
++SJanVEG1 +PFebVEG1 -UFebVEG1 -SFebVEG1 = 0;
++SJanVEG2 +PFebVEG2 -UFebVEG2 -SFebVEG2 = 0;
++SJanOIL1 +PFebOIL1 -UFebOIL1 -SFebOIL1 = 0;
++SJanOIL2 +PFebOIL2 -UFebOIL2 -SFebOIL2 = 0;
++SJanOIL3 +PFebOIL3 -UFebOIL3 -SFebOIL3 = 0;
++SFebVEG1 +PMarVEG1 -UMarVEG1 -SMarVEG1 = 0;
++SFebVEG2 +PMarVEG2 -UMarVEG2 -SMarVEG2 = 0;
++SFebOIL1 +PMarOIL1 -UMarOIL1 -SMarOIL1 = 0;
++SFebOIL2 +PMarOIL2 -UMarOIL2 -SMarOIL2 = 0;
++SFebOIL3 +PMarOIL3 -UMarOIL3 -SMarOIL3 = 0;
++SMarVEG1 +PAprVEG1 -UAprVEG1 -SAprVEG1 = 0;
++SMarVEG2 +PAprVEG2 -UAprVEG2 -SAprVEG2 = 0;
++SMarOIL1 +PAprOIL1 -UAprOIL1 -SAprOIL1 = 0;
++SMarOIL2 +PAprOIL2 -UAprOIL2 -SAprOIL2 = 0;
++SMarOIL3 +PAprOIL3 -UAprOIL3 -SAprOIL3 = 0;
++SAprVEG1 +PMayVEG1 -UMayVEG1 -SMayVEG1 = 0;
++SAprVEG2 +PMayVEG2 -UMayVEG2 -SMayVEG2 = 0;
++SAprOIL1 +PMayOIL1 -UMayOIL1 -SMayOIL1 = 0;
++SAprOIL2 +PMayOIL2 -UMayOIL2 -SMayOIL2 = 0;
++SAprOIL3 +PMayOIL3 -UMayOIL3 -SMayOIL3 = 0;
++SMayVEG1 +PJunVEG1 -UJunVEG1 -SJunVEG1 = 0;
++SMayVEG2 +PJunVEG2 -UJunVEG2 -SJunVEG2 = 0;
++SMayOIL1 +PJunOIL1 -UJunOIL1 -SJunOIL1 = 0;
++SMayOIL2 +PJunOIL2 -UJunOIL2 -SJunOIL2 = 0;
++SMayOIL3 +PJunOIL3 -UJunOIL3 -SJunOIL3 = 0;
+
+//End of June Storage
++SJunVEG1 = 500;
++SJunVEG2 = 500;
++SJunOIL1 = 500;
++SJunOIL2 = 500;
++SJunOIL3 = 500;
+
+//At most 3 Oils Used
++BJanVEG1 +BJanVEG2 +BJanOIL1 +BJanOIL2 +BJanOIL3 <= 3;
++BFebVEG1 +BFebVEG2 +BFebOIL1 +BFebOIL2 +BFebOIL3 <= 3;
++BMarVEG1 +BMarVEG2 +BMarOIL1 +BMarOIL2 +BMarOIL3 <= 3;
++BAprVEG1 +BAprVEG2 +BAprOIL1 +BAprOIL2 +BAprOIL3 <= 3;
++BMayVEG1 +BMayVEG2 +BMayOIL1 +BMayOIL2 +BMayOIL3 <= 3;
++BJunVEG1 +BJunVEG2 +BJunOIL1 +BJunOIL2 +BJunOIL3 <= 3;
+
+//Use at least 20 tons
+UJanVEG1 >= 20BJanVEG1; UJanVEG2 >= 20BJanVEG2; UJanOIL1 >= 20BJanOIL1; UJanOIL2 >= 20BJanOIL2; UJanOIL3 >= 20BJanOIL3;
+UFebVEG1 >= 20BFebVEG1; UFebVEG2 >= 20BFebVEG2; UFebOIL1 >= 20BFebOIL1; UFebOIL2 >= 20BFebOIL2; UFebOIL3 >= 20BFebOIL3;
+UMarVEG1 >= 20BMarVEG1; UMarVEG2 >= 20BMarVEG2; UMarOIL1 >= 20BMarOIL1; UMarOIL2 >= 20BMarOIL2; UMarOIL3 >= 20BMarOIL3;
+UAprVEG1 >= 20BAprVEG1; UAprVEG2 >= 20BAprVEG2; UAprOIL1 >= 20BAprOIL1; UAprOIL2 >= 20BAprOIL2; UAprOIL3 >= 20BAprOIL3;
+UMayVEG1 >= 20BMayVEG1; UMayVEG2 >= 20BMayVEG2; UMayOIL1 >= 20BMayOIL1; UMayOIL2 >= 20BMayOIL2; UMayOIL3 >= 20BMayOIL3;
+UJunVEG1 >= 20BJunVEG1; UJunVEG2 >= 20BJunVEG2; UJunOIL1 >= 20BJunOIL1; UJunOIL2 >= 20BJunOIL2; UJunOIL3 >= 20BJunOIL3;
+
+//Use OIL3 if VEG is used
+BJanOIL3 >= 0.5BJanVEG1 + 0.5BJanVEG2;
+BFebOIL3 >= 0.5BFebVEG1 + 0.5BFebVEG2;
+BMarOIL3 >= 0.5BMarVEG1 + 0.5BMarVEG2;
+BAprOIL3 >= 0.5BAprVEG1 + 0.5BAprVEG2;
+BMayOIL3 >= 0.5BMayVEG1 + 0.5BMayVEG2;
+BJunOIL3 >= 0.5BJunVEG1 + 0.5BJunVEG2;
+
+//Binary Linking Constraints
+UJanVEG1 <= 250BJanVEG1; UJanVEG2 <= 250BJanVEG2; UJanOIL1 <= 250BJanOIL1; UJanOIL2 <= 250BJanOIL2; UJanOIL3 <= 250BJanOIL3;
+UFebVEG1 <= 250BFebVEG1; UFebVEG2 <= 250BFebVEG2; UFebOIL1 <= 250BFebOIL1; UFebOIL2 <= 250BFebOIL2; UFebOIL3 <= 250BFebOIL3;
+UMarVEG1 <= 250BMarVEG1; UMarVEG2 <= 250BMarVEG2; UMarOIL1 <= 250BMarOIL1; UMarOIL2 <= 250BMarOIL2; UMarOIL3 <= 250BMarOIL3;
+UAprVEG1 <= 250BAprVEG1; UAprVEG2 <= 250BAprVEG2; UAprOIL1 <= 250BAprOIL1; UAprOIL2 <= 250BAprOIL2; UAprOIL3 <= 250BAprOIL3;
+UMayVEG1 <= 250BMayVEG1; UMayVEG2 <= 250BMayVEG2; UMayOIL1 <= 250BMayOIL1; UMayOIL2 <= 250BMayOIL2; UMayOIL3 <= 250BMayOIL3;
+UJunVEG1 <= 250BJunVEG1; UJunVEG2 <= 250BJunVEG2; UJunOIL1 <= 250BJunOIL1; UJunOIL2 <= 250BJunOIL2; UJunOIL3 <= 250BJunOIL3;
+
+bin BJanVEG1;
+bin BJanVEG2;
+bin BJanOIL1;
+bin BJanOIL2;
+bin BJanOIL3;
+bin BFebVEG1;
+bin BFebVEG2;
+bin BFebOIL1;
+bin BFebOIL2;
+bin BFebOIL3;
+bin BMarVEG1;
+bin BMarVEG2;
+bin BMarOIL1;
+bin BMarOIL2;
+bin BMarOIL3;
+bin BAprVEG1;
+bin BAprVEG2;
+bin BAprOIL1;
+bin BAprOIL2;
+bin BAprOIL3;
+bin BMayVEG1;
+bin BMayVEG2;
+bin BMayOIL1;
+bin BMayOIL2;
+bin BMayOIL3;
+bin BJunVEG1;
+bin BJunVEG2;
+bin BJunOIL1;
+bin BJunOIL2;
+bin BJunOIL3;
